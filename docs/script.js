@@ -8,6 +8,15 @@ var $thinking = $('#thinking');
 var capturedPieces = { w: [], b: [] };
 var moveCount = 0;
 
+// Set a random soothing background color on load
+function setRandomTheme() {
+    var hue = Math.floor(Math.random() * 360);
+    // Low saturation and lightness for a soothing dark theme that fits the white text
+    var color = 'hsl(' + hue + ', 30%, 30%)';
+    document.body.style.backgroundColor = color;
+}
+setRandomTheme();
+
 // Piece Unicode symbols for captured pieces display
 var pieceSymbols = {
     'p': '♟', 'n': '♞', 'b': '♝', 'r': '♜', 'q': '♛', 'k': '♚',
