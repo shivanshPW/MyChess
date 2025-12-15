@@ -249,7 +249,17 @@ var config = {
 
 board = Chessboard('myBoard', config);
 
+// Ensure board is resized correctly on load
+setTimeout(function() {
+    board.resize();
+}, 100);
+
 updateStatus();
+
+// Make board responsive
+$(window).resize(function() {
+    board.resize();
+});
 
 // Event Listeners
 $('#resetBtn').on('click', function() {

@@ -10,6 +10,10 @@ body {
     transition: background-color 0.5s ease;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .container {
     text-align: center;
     background-color: #34495e31;
@@ -17,6 +21,7 @@ body {
     border-radius: 8px;
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     max-width: 900px;
+    width: 95%; /* Ensure it doesn't touch edges on small screens if max-width isn't hit */
 }
 
 h1 {
@@ -46,7 +51,10 @@ h3 {
 }
 
 #myBoard {
+    width: 100%;
+    max-width: 400px;
     flex-shrink: 0;
+    touch-action: none;
 }
 
 .side-panel {
@@ -171,4 +179,43 @@ select {
     border-radius: 20px;
     font-size: 0.9em;
     color: #ecf0f1;
+}
+
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .side-panel {
+        width: 100%;
+        max-width: 400px;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+    .captured-pieces {
+        display: inline-block;
+        min-width: 45%;
+    }
+
+    #move-history {
+        width: 100%;
+        box-sizing: border-box;
+        max-height: 150px;
+    }
+
+    .controls {
+        flex-wrap: wrap;
+    }
+    
+    .container {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
 }
